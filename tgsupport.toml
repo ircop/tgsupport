@@ -1,0 +1,7 @@
+[bot]
+token = "00000000000:xxxxxxxxxxxxxxxxxxx"
+log = "/var/log/supportbot.log"
+wh-url = "https://example.com:443/00000000000:xxxxxxxxxxxxxxxxxxx"
+listen = "127.0.0.1:4001"
+support-chat = -12345678
+debug = true
