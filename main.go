@@ -16,7 +16,10 @@ func main() {
 		panic(err)
 	}
 
-	logger.SetPath(cfg.Config.LogPath);
+	err = logger.SetPath(cfg.Config.LogPath);
+	if nil != err {
+		panic(err)
+	}
 	logger.SetDebug(cfg.Config.Debug)
 
 	if err = bot.Init(); nil != err {

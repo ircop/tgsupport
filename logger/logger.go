@@ -77,15 +77,15 @@ func SetDebug(val bool) {
 }
 
 // SetPath - set log files paths
-func SetPath(path string) {
+func SetPath(path string) error {
 	mlog.LogPath = path
 
 	if( mlog.LogPath != "" ) {
 		var err error
 		mlog.LogFile, err = os.OpenFile(mlog.LogPath, os.O_RDWR | os.O_CREATE | os.O_APPEND, 0600)
 		if err != nil {
-			log.Fatalf("Cannot open logfile %s: %s", mlog.LogPath, err.Error())
+			return fmt.Errorf("Cannot open logfile %s: %s", mlog.LogPath, err.Error())
 		}
 		log.SetOutput(mlog.LogFile)
 	}
-}
+	return nil}
